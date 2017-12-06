@@ -15,3 +15,9 @@ http://docs.ansible.com/ansible/latest/junos_command_module.html
 http://docs.ansible.com/ansible/latest/junos_config_module.html
 
 
+■ その他
+・ハンズオン環境構築データ GitHub リポジトリ
+https://github.com/apc-nw/handson
+
+・オプション課題Wiki
+https://github.com/apc-nw/handson/wiki
