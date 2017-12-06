@@ -24,7 +24,9 @@ Vagrant.configure(2) do |config|
     node.vm.network "private_network", ip: "172.16.0.1", virtualbox__intnet: "management"
     # ge-0/0/2
     node.vm.network "private_network", ip: "10.0.12.1", virtualbox__intnet: "1-2"
-
+    
+#    config.vm.boot_timeout = 600
+    
     config.vm.provider "virtualbox" do |vb|
       vb.memory = 1024
       #vb.cpus = 2
@@ -40,7 +42,9 @@ Vagrant.configure(2) do |config|
 #    node.vm.network "private_network", ip: "172.16.0.2", virtualbox__intnet: "management"
 #    # ge-0/0/2
 #    node.vm.network "private_network", ip: "10.0.12.2", virtualbox__intnet: "1-2"
-#
+#    
+#    config.vm.boot_timeout = 600
+#    
 #    config.vm.provider "virtualbox" do |vb|
 #      vb.memory = 1024
 #      #vb.cpus = 2
@@ -56,6 +60,8 @@ Vagrant.configure(2) do |config|
     node.vm.network "private_network", ip: "172.16.0.9", virtualbox__intnet: "management"
 
     node.vm.synced_folder ".", "/vagrant", type:"virtualbox"
+    
+#    config.vm.boot_timeout = 600
     
     config.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--nicpromisc2", "deny"]
