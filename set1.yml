@@ -4,11 +4,11 @@
   connection: local
   
   tasks:
-
-
-
-
-
+    - name: set
+      junos_config:
+        lines:
+          - ******
+        provider: "{{ cli }}"
 
   vars:
     cli:
