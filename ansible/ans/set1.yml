@@ -1,0 +1,18 @@
+---
+- hosts: vsrx
+  gather_facts: no
+  connection: local
+  
+  tasks:
+    - name: set
+      junos_config:
+        lines:
+          - set system ntp server 10.0.0.1
+        provider: "{{ cli }}"
+
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+

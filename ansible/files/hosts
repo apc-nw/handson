@@ -1,0 +1,9 @@
+[vsrx]
+172.16.0.1
+
+[vsrx:vars]
+ansible_user=root
+ansible_password=Juniper
+
+[controller]
+localhost

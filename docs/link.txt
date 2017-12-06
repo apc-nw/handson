@@ -1,0 +1,17 @@
+
+
+■ Asnible モジュール 公式ドキュメントリンク集
+
+・Network Modules
+http://docs.ansible.com/ansible/latest/list_of_network_modules.html
+
+・Junos
+http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos
+
+・junos_command - Run arbitrary commands on an Juniper JUNOS device
+http://docs.ansible.com/ansible/latest/junos_command_module.html
+
+・junos_config - Manage configuration on devices running Juniper JUNOS
+http://docs.ansible.com/ansible/latest/junos_config_module.html
+
+

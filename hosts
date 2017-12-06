@@ -1,0 +1,7 @@
+[vsrx]
+*****
+
+[vsrx:vars]
+ansible_user=*****
+ansible_password=*****
+

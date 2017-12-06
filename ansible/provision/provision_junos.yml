@@ -1,0 +1,19 @@
+---
+- hosts: vsrx
+  strategy: debug
+  gather_facts: no
+  connection: local
+  
+  tasks:
+    - name: provision
+      junos_config:
+        src: "config/{{ inventory_hostname }}.cfg"
+        src_format: set
+        provider: "{{ cli }}"
+
+  vars:
+    cli:
+      host:     "{{ inventory_hostname }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+

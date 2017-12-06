@@ -1,0 +1,62 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: yum install/update for before "pip install junos-eznc"
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        # for junos
+        - python-devel
+        - libxml2-devel
+        - libxslt-devel
+        - gcc
+        - openssl
+        - libffi-devel
+        
+    - name: pip install/update
+      pip:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - junos-eznc
+
+    - name: PasswordAuthentication yes
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: "^PasswordAuthentication"
+        insertafter: "^#PasswordAuthentication"
+        line: "PasswordAuthentication yes"
+      notify: restart sshd
+
+    - name: create directory /etc/ansible 
+      file:
+        path: /etc/ansible
+        state: directory
+        owner: vagrant
+        group: vagrant
+
+#    - name: deploy ansible file
+#      copy:
+#        src: /vagrant/ansible/files/hosts
+#        dest: /etc/ansible/hosts
+#        owner: vagrant
+#        group: vagrant
+
+    - name: deploy ansible.cfg
+      copy:
+        src: /vagrant/ansible/files/ansible.cfg
+        dest: /etc/ansible/ansible.cfg
+        owner: vagrant
+        group: vagrant
+
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+

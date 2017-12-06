@@ -1,0 +1,19 @@
+---
+- hosts: vsrx
+  gather_facts: no
+  connection: local
+  
+  tasks:
+    - name: set
+      junos_config:
+        src: ./template_config.txt
+        src_format: set
+        provider: "{{ cli }}"
+      register: result
+
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+

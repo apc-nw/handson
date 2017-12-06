@@ -1,0 +1,23 @@
+---
+- hosts: vsrx
+  gather_facts:no
+  connection: local
+  
+  tasks:
+    - name: show
+      junos_command:
+        commands:
+          - show version
+        provider: "{{ cli }}"
+      register: result
+
+    - name: debug
+      debug:
+        msg: "{{ result.stdout_lines[0] }}"
+        
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+

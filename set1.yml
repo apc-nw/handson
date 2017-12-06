@@ -1,0 +1,18 @@
+---
+- hosts: vsrx
+  gather_facts: no
+  connection: local
+  
+  tasks:
+
+
+
+
+
+
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+
