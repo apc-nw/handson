@@ -46,9 +46,9 @@ centos7: flag to force provisioning. Provisioners marked to run always will stil
 
 C:\handson>  (プロンプトが戻る)
 ```
-
 # ターミナル接続方法
 ## centos7 (Ansibleホスト)
+=======
 - 接続情報
     - ホスト: localhost
     - サービス: SSH
@@ -57,7 +57,7 @@ C:\handson>  (プロンプトが戻る)
     - ユーザー名: vagrant
     - パスワード:（ハンズオン当日と同じ）
     - 秘密鍵 `C:\handson\.vagrant\machines\centos7\virtualbox\private_key` でもログイン可
-## vsrx1（junos）
+### vsrx1（junos）
 - 接続情報
     - ホスト: localhost
     - サービス: SSH
@@ -83,6 +83,7 @@ C:\handson>  (プロンプトが戻る)
 # 環境の削除
 - コマンドプロンプトで `c:\handson` フォルダに移動し、`vagrant destroy --force` コマンドを実行する
     - 仮想マシン2台（centos7 (Ansibleホスト)、 vsrx1（junos））が削除される
+
 
 
 
